@@ -1,0 +1,10 @@
+.imagesSectionContainer {
+    display: grid;
+    grid-template-columns: repeat(3, 31.6%);
+    grid-gap: 30px;
+}
+.twoImagesColumn {
+    display: grid;
+    grid-template-rows: 47% 47%;
+    grid-gap: 37px;
+}

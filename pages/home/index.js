@@ -1,5 +1,7 @@
 import styles from "./Home.module.css";
 import React, { useEffect, useState } from "react";
+import ImagesSection from "./components/ImagesSection/index.js";
+import OurServices from "./components/OurServices/index.js";
 
 export default function Home() {
   const [currentSectionId, setCurrentSectionId] = useState("");
@@ -15,16 +17,19 @@ export default function Home() {
   };
 
   const renderSectionContent = () => {
-      if (currentSectionId === '01') {
-          return (
-              <div>Section 1 content</div>
-          )
-      } else if (currentSectionId === '02') {
-          return (
-              <div>Section 2 content</div>
-          )
+    let caseData = mockData[0].sections.find(
+      (section) => section.id === currentSectionId
+    );
+    if (caseData) {
+      switch (currentSectionId) {
+        case "01":
+          return <ImagesSection imagesArray={caseData.images} />;
+        case "02":
+          return <OurServices data={caseData} />;
       }
-  }
+    }
+    return "";
+  };
 
   const mockData = [
     {
@@ -86,10 +91,20 @@ export default function Home() {
             <div
               key={`section-${i}`}
               onClick={() => handleCurrentSectionId(section?.id)}
-              className={`${styles.tabLink} ${currentSectionId === section.id ? styles.active : styles.inactive}`}
+              className={`${styles.tabLink} ${
+                currentSectionId === section.id
+                  ? styles.active
+                  : styles.inactive
+              }`}
             >
               {`Section ${i + 1}`}
-              <p className={`${currentSectionId === section.id ? styles.dotActive : styles.dotInactive}`}></p>
+              <p
+                className={`${
+                  currentSectionId === section.id
+                    ? styles.dotActive
+                    : styles.dotInactive
+                }`}
+              ></p>
             </div>
           );
         })}

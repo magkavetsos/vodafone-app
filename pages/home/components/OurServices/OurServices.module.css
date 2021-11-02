@@ -1,0 +1,11 @@
+.title {
+  color: #1292ee;
+  font-size: 20px;
+  margin-bottom: 40px;
+  font-weight: 600;
+}
+.ourServicesContainer {
+  display: grid;
+  grid-template-columns: 47% 47%;
+  grid-gap: 71px;
+}
