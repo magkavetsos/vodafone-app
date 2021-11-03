@@ -1,0 +1,22 @@
+.imagesSectionContainer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 30px;
+}
+@media (max-width: 800px) {
+  .imagesSectionContainer {
+    grid-template-columns: auto;
+  }
+  .oneImageColumn,
+  .twoImagesColumn {
+    text-align: center;
+  }
+}
+.twoImagesColumn {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-gap: 37px;
+}
+.imageLayer {
+  position: relative;
+}
