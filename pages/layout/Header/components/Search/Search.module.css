@@ -1,3 +1,8 @@
 .searchIcon {
-    cursor: pointer;
+  cursor: pointer;
+}
+@media (max-width: 800px) {
+  .searchIcon {
+    text-align: center;
+  }
 }

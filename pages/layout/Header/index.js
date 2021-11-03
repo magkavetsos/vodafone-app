@@ -40,12 +40,12 @@ export default function Header() {
   ];
   return (
     <div className={styles.headerGrid}>
+      <div className={styles.menuGrid}>
+        <Navbar data={mockDataMenu} />
+        <Search data={inputItems} />
+      </div>
       <div>
         <Carousel data={mockDataSlider} />
-        <div className={styles.menuGrid}>
-          <Navbar data={mockDataMenu}/>
-          <Search data={inputItems}/>
-        </div>
       </div>
     </div>
   );
