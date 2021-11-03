@@ -7,7 +7,6 @@ import { useRouter } from "next/router";
 export default function Search(props) {
   const { data } = props;
   const router = useRouter();
-  const [isOpen, setIsOpen] = useState(true);
   const [searchBarVisible, setSearchBarVisible] = useState(false);
 
   const searchAction = (href) => {

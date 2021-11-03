@@ -1,6 +1,6 @@
 import styles from "./Page2.module.css";
 import Image from "next/image";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
 export default function Home() {
   const [hovered, setHovered] = useState(false);
@@ -39,26 +39,13 @@ export default function Home() {
     window.location.href = "https://www.vodafone.gr/ypostirixi/";
   };
 
-  const onMouseLeave = () => {
-    // setHovered(!hovered);
-  };
-
-  const onMouseOver = () => {
-    // setHovered(!hovered);
-  };
-
   return (
     <div className={styles.sectionGrid}>
       <div className={styles.sectionTitle}>{mockData[0]?.description}</div>
       <div className={styles.tilesContainer}>
         {mockData[0]?.tiles?.map((tile, i) => {
           return (
-            <div
-              key={`tile-${i}`}
-              className={styles.tile}
-              onMouseOver={() => onMouseOver()}
-              onMouseLeave={() => onMouseLeave()}
-            >
+            <div key={`tile-${i}`} className={styles.tile}>
               <div className={styles.image}>
                 <Image src={`/section${i + 1}.png`} width="60" height="60" />
               </div>

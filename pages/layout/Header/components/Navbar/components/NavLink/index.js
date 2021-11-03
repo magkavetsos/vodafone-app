@@ -1,6 +1,6 @@
 import styles from "./NavLink.module.css";
 import React from "react";
-import Link, { LinkProps } from "next/link";
+import Link from "next/link";
 import { useRouter } from "next/router";
 
 export default function NavLink(props) {

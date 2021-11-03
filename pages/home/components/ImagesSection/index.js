@@ -1,7 +1,5 @@
-import Image from "next/image";
 import React, { useState } from "react";
 import styles from "./ImagesSection.module.css";
-import { base64 } from "./blurDataURL";
 import ImageContainer from "./components/ImageContainer/index.js";
 
 export default function ImagesSection(props) {

@@ -1,6 +1,3 @@
-import Head from "next/head";
-import Image from "next/image";
-import Link from "next/link";
 import styles from "./Form.module.css";
 import { useForm } from "react-hook-form";
 import phoneValidation from "./phoneValidation";

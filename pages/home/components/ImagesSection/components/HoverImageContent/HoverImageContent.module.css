@@ -36,9 +36,8 @@
   display: initial;
 }
 .hoverImageContainer * {
-    text-align: center;
+  text-align: center;
 }
 .hoverImage:hover {
   opacity: 0.8;
-  /* background-color: #2498eb; */
 }

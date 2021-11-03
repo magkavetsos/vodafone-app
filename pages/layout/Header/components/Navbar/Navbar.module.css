@@ -3,7 +3,7 @@
   flex-direction: row;
   justify-content: flex-end;
   flex-wrap: wrap;
-  align-items: center;
+  /* align-items: center; */
   margin-bottom: 58px;
 }
 .tabMenu div,
@@ -13,33 +13,6 @@
 .tabMenu div:last-child,
 .tabMenu a:last-child {
   margin-right: 0;
-}
-.dotActive {
-  width: 9px;
-  height: 9px;
-  background-color: #2ed47d;
-  margin: 11px auto 0 auto;
-  border-radius: 50%;
-}
-.dotInactive {
-  width: 9px;
-  height: 9px;
-  background-color: transparent;
-  margin: 11px auto 0 auto;
-  border-radius: 50%;
-}
-.tabLink {
-  color: white;
-  text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.3);
-  font-size: 15px;
-  cursor: pointer;
-}
-.active {
-  font-weight: 600;
-  pointer-events: none;
-}
-.inactive {
-  font-weight: 400;
 }
 @media (max-width: 649px) {
   .tabMenu {

@@ -12,7 +12,7 @@ export default function ImageContainer(props) {
       onMouseOver={() => setHoveredId(title)}
       onMouseLeave={() => setHoveredId("")}
     >
-      {!(hoveredId === title) && (
+      {hoveredId !== title ? (
         <Image
           src={img}
           width={width}
@@ -20,15 +20,12 @@ export default function ImageContainer(props) {
           placeholder="blur"
           blurDataURL={base64}
         />
-      )}
-      {hoveredId === title && (
+      ) : (
         <>
           <Image
             src="/bg.png"
             width={width}
             height={height}
-            placeholder="blur"
-            blurDataURL={base64}
           />
           <HoverImageContent title={title} />
         </>

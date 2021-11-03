@@ -27,7 +27,7 @@ export default function SearchBar(props) {
             setInputProps({ ...inputProps, value: e.target.value });
           }}
         />
-        <div className={styles.searchIcon} onClick={() => navigateTo()}>
+        <div className={styles.activeIcon} onClick={() => navigateTo()}>
           <Image src={`/searchaction.png`} width="20" height="20" />
         </div>
       </div>
@@ -51,19 +51,6 @@ export default function SearchBar(props) {
                     {item.title}
                   </li>
                   <ul className={styles.InsideMenuStyles}>
-                    <li
-                      className={styles.menuItem}
-                      key={`${item}${index}-all`}
-                      onClick={() =>
-                        setInputProps({
-                          ...inputProps,
-                          value: "All",
-                          href: item?.href,
-                        })
-                      }
-                    >
-                      All
-                    </li>
                     {item.subContent.map((item, index) => {
                       return (
                         <li

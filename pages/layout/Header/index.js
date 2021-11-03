@@ -1,5 +1,4 @@
 import styles from "./Header.module.css";
-import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import Carousel from "./components/Carousel/index.js";
 import Navbar from "./components/Navbar/index.js";
@@ -32,6 +31,7 @@ export default function Header() {
       title: "home",
       href: "home",
       subContent: [
+        { title: "All", href: "home" },
         { title: "section1", href: "home#section1" },
         { title: "section2", href: "home#section2" },
       ],

@@ -9,7 +9,7 @@
 .searchContent {
   display: flex;
 }
-.searchIcon {
+.activeIcon {
   cursor: pointer;
 }
 .menuStyles {
@@ -21,20 +21,20 @@
   border-radius: 4px;
 }
 .InsideMenuStyles {
-    list-style-type: none;
-    margin: 0;
-    border-radius: 4px;
-    padding-left: 10px;
+  list-style-type: none;
+  margin: 0;
+  border-radius: 4px;
+  padding-left: 10px;
 }
 .menuItem {
-    color: #FCFCFC;
-    padding: 6px 8px;
-    font-size: 15px;
-    text-align: left;
-    opacity: .5;
-    cursor: pointer;
+  color: #fcfcfc;
+  padding: 6px 8px;
+  font-size: 15px;
+  text-align: left;
+  opacity: 0.5;
+  cursor: pointer;
 }
 .menuItem:hover {
-    background: #FCFCFC;
-    color: #212424;
+  background: #fcfcfc;
+  color: #212424;
 }
