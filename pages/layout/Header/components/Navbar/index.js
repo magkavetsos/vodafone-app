@@ -12,8 +12,9 @@ export default function Navbar(props) {
       {data?.map((page) => {
         return (
           <NavLink
-            title={page?.title}
-            href={`/${page?.title.replace(/\s+/g, "").toLowerCase()}`}
+            title={page.title}
+            href={`/${page.title.replace(/\s+/g, "").toLowerCase()}`}
+            key={`${page.title}`}
           />
         );
       })}

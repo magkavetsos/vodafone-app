@@ -44,7 +44,7 @@ export default function Carousel(props) {
       >
         {data?.map((slide, i) => {
           return (
-            <div>
+            <div key={`${i}`}>
               <img src={slide?.image} height="366px" className={styles.img} />
               <div className={styles.carouselInfo}>
                 <div className={styles.title}>{slide?.title}</div>
