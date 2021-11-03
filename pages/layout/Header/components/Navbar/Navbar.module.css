@@ -41,3 +41,11 @@
 .inactive {
   font-weight: 400;
 }
+@media (max-width: 649px) {
+  .tabMenu {
+    justify-content: flex-start;
+    margin-bottom: 20px;
+    margin-left: 8px;
+    padding-top: 8px;
+  }
+}
