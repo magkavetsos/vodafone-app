@@ -4,6 +4,10 @@
   color: #071e57;
   margin-bottom: 74px;
 }
+.graphContainer {
+  flex: 1;
+  flex-basis: 300px;
+}
 .graphContent {
   display: grid;
   grid-template-columns: 100%;

@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import styles from "./Form.module.css";
 import { useForm } from "react-hook-form";
+import phoneValidation from "./phoneValidation";
 
 export default function Form(props) {
   const { data } = props;
@@ -16,8 +17,9 @@ export default function Form(props) {
     alert("form submitted!");
     reset();
   };
+
   return (
-    <div  style={{flex: 1, flexBasis: '300px'}}>
+    <div className={styles.formContainer}>
       <div className={styles.formTitle}>{data?.formText}</div>
       <div className={styles.formSubtitle}>
         {data?.formSubtitle ??
@@ -26,7 +28,7 @@ export default function Form(props) {
       <form
         onSubmit={handleSubmit(onSubmit)}
         className={styles.form}
-        novalidate="true"
+        noValidate={true}
       >
         <div>
           <input
@@ -34,9 +36,9 @@ export default function Form(props) {
             {...register("phone", {
               required: "Phone is required",
               validate: (value) => {
-                //todo stuff
-                let isvalid = true;
-                return isvalid ? false : 'Please enter a valid phone'
+                return phoneValidation(value)
+                  ? true
+                  : "Please enter a valid phone";
               },
             })}
           />

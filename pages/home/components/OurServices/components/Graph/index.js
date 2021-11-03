@@ -33,7 +33,7 @@ export default function Graph(props) {
     }
   };
   return (
-    <div style={{flex: 1, flexBasis: '300px'}}>
+    <div className={styles.graphContainer}>
       <div className={styles.graphTitle}>{data?.graphText}</div>
       <div className={styles.graphContent}>
         {data?.stats?.map((stat, i) => {
