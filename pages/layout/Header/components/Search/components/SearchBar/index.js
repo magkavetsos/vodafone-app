@@ -32,11 +32,10 @@ export default function SearchBar(props) {
       }
     },
     onSelectedItemChange: ({ selectedItem }) => {
-      console.log("selectedItem: ", selectedItem);
       router.push("/" + selectedItem.href);
       closeMenu();
     },
-    itemToString: (item) => "",
+    itemToString: () => "",
   });
 
   let currentIndex = 0;
