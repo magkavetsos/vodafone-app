@@ -30,13 +30,12 @@ export default function Header() {
     {
       title: "home",
       href: "home",
-      subContent: [
-        { title: "All", href: "home" },
-        { title: "section1", href: "home#section1" },
-        { title: "section2", href: "home#section2" },
-      ],
+      parent: null,
     },
-    { title: "Page 2", href: "page2", subContent: [] },
+    { title: "All", href: "home", parent: "home" },
+    { title: "section1", href: "home#section1", parent: "home" },
+    { title: "section2", href: "home#section2", parent: "home" },
+    { title: "Page 2", href: "page2", parent: null },
   ];
   return (
     <div className={styles.headerGrid}>
