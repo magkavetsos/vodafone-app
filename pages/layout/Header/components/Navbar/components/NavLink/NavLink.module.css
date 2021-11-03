@@ -1,18 +1,6 @@
-.tabMenu {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-  flex-wrap: wrap;
-  align-items: center;
-  margin-bottom: 58px;
+.activeLink {
 }
-.tabMenu div,
-.tabMenu a {
-  margin-right: 45px;
-}
-.tabMenu div:last-child,
-.tabMenu a:last-child {
-  margin-right: 0;
+.inactiveLink {
 }
 .dotActive {
   width: 9px;

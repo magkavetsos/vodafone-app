@@ -1,0 +1,12 @@
+.menuGrid {
+  position: absolute;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  width: 700px;
+  flex-wrap: wrap;
+  text-align: center;
+  left: 50%;
+  top: 20px;
+  transform: translate(-50%, 0);
+}

@@ -3,27 +3,8 @@ import React from "react";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel as Slider } from "react-responsive-carousel";
 
-export default function Carousel() {
-  const mockData = [
-    {
-      title: "Slide 1",
-      subtitle: "Text for slide 1",
-      image:
-        "https://images.pexels.com/photos/994605/pexels-photo-994605.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-    },
-    {
-      title: "Slide 2",
-      subtitle: "Text for slide 2",
-      image:
-        "https://images.pexels.com/photos/457881/pexels-photo-457881.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-    },
-    {
-      title: "Slide 3",
-      subtitle: "Text for slide 3",
-      image:
-        "https://images.pexels.com/photos/1655166/pexels-photo-1655166.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-    },
-  ];
+export default function Carousel(props) {
+  const { data } = props;
   return (
     <div className={styles.carouselGrid}>
       <Slider
@@ -43,16 +24,13 @@ export default function Carousel() {
             cursor: "pointer",
             width: "9px",
             height: "9px",
-            backgroundColor: 'transparent',
-            borderRadius: '50%',
-            border: '1px solid #FFFFFF',
+            backgroundColor: isSelected ? "#1292ee" : "transparent",
+            borderRadius: "50%",
+            border: "1px solid #FFFFFF",
           };
-          const style = isSelected
-            ? { ...defStyle, backgroundColor: "#1292ee" }
-            : { ...defStyle };
           return (
             <div
-              style={style}
+              style={defStyle}
               onClick={onClickHandler}
               onKeyDown={onClickHandler}
               value={index}
@@ -64,7 +42,7 @@ export default function Carousel() {
           );
         }}
       >
-        {mockData?.map((slide, i) => {
+        {data?.map((slide, i) => {
           return (
             <div>
               <img src={slide?.image} height="366px" className={styles.img} />
