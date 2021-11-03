@@ -27,13 +27,24 @@ export default function Header() {
         "https://images.pexels.com/photos/1655166/pexels-photo-1655166.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
     },
   ];
+  const inputItems = [
+    {
+      title: "home",
+      href: "home",
+      subContent: [
+        { title: "section1", href: "section1" },
+        { title: "section2", href: "section2" },
+      ],
+    },
+    { title: "Page 2", href: "page2", subContent: [] },
+  ];
   return (
     <div className={styles.headerGrid}>
       <div>
         <Carousel data={mockDataSlider} />
         <div className={styles.menuGrid}>
           <Navbar data={mockDataMenu}/>
-          <Search />
+          <Search data={inputItems}/>
         </div>
       </div>
     </div>
