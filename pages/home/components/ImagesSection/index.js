@@ -1,50 +1,58 @@
 import Image from "next/image";
+import React, { useState } from "react";
 import styles from "./ImagesSection.module.css";
 import { base64 } from "./blurDataURL";
+import ImageContainer from "./components/ImageContainer/index.js";
 
 export default function ImagesSection(props) {
   const { imagesArray } = props;
+  const [hoveredId, setHoveredId] = useState("");
   return (
     <div className={styles.imagesSectionContainer}>
       <div className={styles.oneImageColumn}>
-        <Image
-          src={imagesArray[0].img}
+        <ImageContainer
+          img={imagesArray[0].img}
           width="370"
-          height="700"
-          placeholder="blur"
-          blurDataURL={base64}
+          height="650"
+          setHoveredId={setHoveredId}
+          hoveredId={hoveredId}
+          title={imagesArray[0].title}
         />
       </div>
       <div className={styles.twoImagesColumn}>
-        <Image
-          src={imagesArray[1].img}
+        <ImageContainer
+          img={imagesArray[1].img}
           width="371"
           height="301"
-          placeholder="blur"
-          blurDataURL={base64}
+          setHoveredId={setHoveredId}
+          hoveredId={hoveredId}
+          title={imagesArray[1].title}
         />
-        <Image
-          src={imagesArray[2].img}
+        <ImageContainer
+          img={imagesArray[2].img}
           width="371"
           height="301"
-          placeholder="blur"
-          blurDataURL={base64}
+          setHoveredId={setHoveredId}
+          hoveredId={hoveredId}
+          title={imagesArray[2].title}
         />
       </div>
       <div className={styles.twoImagesColumn}>
-        <Image
-          src={imagesArray[3].img}
+        <ImageContainer
+          img={imagesArray[3].img}
           width="371"
           height="301"
-          placeholder="blur"
-          blurDataURL={base64}
+          setHoveredId={setHoveredId}
+          hoveredId={hoveredId}
+          title={imagesArray[3].title}
         />
-        <Image
-          src={imagesArray[4].img}
+        <ImageContainer
+          img={imagesArray[4].img}
           width="371"
           height="301"
-          placeholder="blur"
-          blurDataURL={base64}
+          setHoveredId={setHoveredId}
+          hoveredId={hoveredId}
+          title={imagesArray[4].title}
         />
       </div>
     </div>

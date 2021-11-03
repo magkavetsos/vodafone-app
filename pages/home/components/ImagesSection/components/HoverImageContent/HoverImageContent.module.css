@@ -1,0 +1,44 @@
+.hoverImage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: transparent;
+  transition: all 0.3s;
+}
+.hoverImageContent {
+  display: none;
+  width: 100%;
+  height: 100%;
+  margin: auto;
+  text-align: center;
+}
+.title {
+  margin-top: 19px;
+  margin-bottom: 14px;
+  color: #fefefe;
+  font-size: 16px;
+}
+.hr {
+  color: #ffffff;
+  background-color: #ffffff;
+  border: 1px solid #ffffff;
+  width: 41px;
+}
+.hoverImageContainer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.hoverImage:hover .hoverImageContent {
+  display: initial;
+}
+.hoverImageContainer * {
+    text-align: center;
+}
+.hoverImage:hover {
+  opacity: 0.8;
+  /* background-color: #2498eb; */
+}
