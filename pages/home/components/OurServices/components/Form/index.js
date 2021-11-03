@@ -17,26 +17,26 @@ export default function Form(props) {
     reset();
   };
   return (
-    <div>
+    <div  style={{flex: 1, flexBasis: '300px'}}>
       <div className={styles.formTitle}>{data?.formText}</div>
       <div className={styles.formSubtitle}>
-        {data?.formSubtitle ||
+        {data?.formSubtitle ??
           "We work with ecosystem leaders, corporations and startups worldwide. How can we help you?"}
       </div>
       <form
         onSubmit={handleSubmit(onSubmit)}
         className={styles.form}
-        novalidate
+        novalidate="true"
       >
         <div>
           <input
             placeholder={data?.formLabels[0]}
             {...register("phone", {
               required: "Phone is required",
-              pattern: {
-                value:
-                  /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-                message: "Please enter a valid phone number",
+              validate: (value) => {
+                //todo stuff
+                let isvalid = true;
+                return isvalid ? false : 'Please enter a valid phone'
               },
             })}
           />
@@ -47,6 +47,7 @@ export default function Form(props) {
         <div>
           <input
             placeholder={data?.formLabels[1]}
+            type="email"
             {...register("email", {
               required: "Email is required",
               pattern: {
@@ -69,7 +70,7 @@ export default function Form(props) {
               required: "Password is required",
               pattern: {
                 value:
-                  /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#^])[A-Za-z\d@$!%*?&#^]{8,}$/,
+                  /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/,
                 message:
                   "Password should include at least: 8 digits, a number, a capital letter, a symbol, and a low case letter",
               },

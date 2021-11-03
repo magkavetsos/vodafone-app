@@ -3,7 +3,7 @@ import styles from "./Graph.module.css";
 export default function Graph(props) {
   const { data } = props;
 
-  const returnBackgroundColor = (title) => {
+  const getBackgroundColor = (title) => {
     switch (title) {
       case "Percentage 1":
         return "linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(88,254,238,1) 100%, rgba(0,212,255,1) 100%)";
@@ -18,7 +18,7 @@ export default function Graph(props) {
     }
   };
 
-  const returnBorderColor = (title) => {
+  const getBorderColor = (title) => {
     switch (title) {
       case "Percentage 1":
         return "#58FEEE";
@@ -33,7 +33,7 @@ export default function Graph(props) {
     }
   };
   return (
-    <div>
+    <div style={{flex: 1, flexBasis: '300px'}}>
       <div className={styles.graphTitle}>{data?.graphText}</div>
       <div className={styles.graphContent}>
         {data?.stats?.map((stat, i) => {
@@ -51,18 +51,18 @@ export default function Graph(props) {
                 <div
                   style={{
                     width: `${stat?.amount / 10}%`,
-                    background: returnBackgroundColor(stat?.title),
+                    background: getBackgroundColor(stat?.title),
                     height: "5px",
                     position: "relative",
                   }}
                 >
                   <div
                     className={styles.outerCircle}
-                    style={{ borderColor: returnBorderColor(stat?.title) }}
+                    style={{ borderColor: getBorderColor(stat?.title) }}
                   >
                     <div
                       className={styles.innerCircle}
-                      style={{ borderColor: returnBorderColor(stat?.title) }}
+                      style={{ borderColor: getBorderColor(stat?.title) }}
                     ></div>
                   </div>
                 </div>

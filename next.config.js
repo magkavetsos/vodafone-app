@@ -12,4 +12,7 @@ module.exports = {
   images: {
     domains: ['images.pexels.com'],
   },
+  pageExtensions: [
+    'page.js'
+  ],
 }

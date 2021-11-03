@@ -6,7 +6,7 @@ export default function OurServices(props) {
   const { data } = props;
   return (
     <div>
-      <div className={styles.title}>{data?.title || ""}</div>
+      <div className={styles.title}>{data?.title ?? ""}</div>
       <div className={styles.ourServicesContainer}>
         <Graph data={data} />
         <Form data={data} />

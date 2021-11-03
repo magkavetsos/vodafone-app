@@ -17,7 +17,7 @@ export default function Home() {
   };
 
   const renderSectionContent = () => {
-    let caseData = mockData[0].sections.find(
+    const caseData = mockData[0].sections.find(
       (section) => section.id === currentSectionId
     );
     if (caseData) {
@@ -26,9 +26,11 @@ export default function Home() {
           return <ImagesSection imagesArray={caseData.images} />;
         case "02":
           return <OurServices data={caseData} />;
+        default:
+          return null;
       }
     }
-    return "";
+    return null;
   };
 
   const mockData = [
@@ -89,8 +91,8 @@ export default function Home() {
         {mockData[0]?.sections?.map((section, i) => {
           return (
             <div
-              key={`section-${i}`}
-              onClick={() => handleCurrentSectionId(section?.id)}
+              key={section.id}
+              onClick={() => handleCurrentSectionId(section.id)}
               className={`${styles.tabLink} ${
                 currentSectionId === section.id
                   ? styles.active
