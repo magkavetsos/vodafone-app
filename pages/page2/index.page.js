@@ -1,49 +1,25 @@
 import styles from "./Page2.module.css";
 import Image from "next/image";
 import React, { useState } from "react";
+import { getPage2Data } from "../../backend/page2Data";
+import { useQuery } from "react-query";
 
-export default function Home() {
-  const [hovered, setHovered] = useState(false);
-  const mockData = [
-    {
-      id: "page2",
-      name: "Page 2",
-      description: "We match your unique business needs",
-      tiles: [
-        {
-          icon: "icon1",
-          title: "Work with us",
-          description:
-            "Let us know how we can help! Get in touch and we'll give you a fresh perspective on your business.",
-          link: "Learn more",
-        },
-        {
-          icon: "icon2",
-          title: "Our process",
-          description:
-            "After a collaborative assessment we'll explore your business problems and needs co-creatively.",
-          link: "Learn more",
-        },
-        {
-          icon: "icon3",
-          title: "How we help",
-          description:
-            "We provide business development, marketing, planning, operations and financial services. ",
-          link: "Learn more",
-        },
-      ],
-    },
-  ];
+export async function getStaticProps() {
+  const page2Data = await getPage2Data();
+  return { props: { page2Data } };
+}
 
-  const redirectToLink = () => {
-    window.location.href = "https://www.vodafone.gr/ypostirixi/";
-  };
+export default function Page2(props) {
+  const { page2Data } = props;
+  const { data, isLoading } = useQuery("page2", getPage2Data, {
+    initialData: page2Data,
+  });
 
   return (
     <div className={styles.sectionGrid}>
-      <div className={styles.sectionTitle}>{mockData[0]?.description}</div>
+      <div className={styles.sectionTitle}>{data[0]?.description}</div>
       <div className={styles.tilesContainer}>
-        {mockData[0]?.tiles?.map((tile, i) => {
+        {data[0]?.tiles?.map((tile, i) => {
           return (
             <div key={`tile-${i}`} className={styles.tile}>
               <div className={styles.image}>
@@ -51,15 +27,10 @@ export default function Home() {
               </div>
               <div className={styles.title}>{tile.title}</div>
               <div className={styles.description}>{tile.description}</div>
-              <div className={styles.link} onClick={() => redirectToLink()}>
+              <div className={styles.link}>
                 <div className={styles.linkText}>{tile.link}</div>
                 <div>
-                  <Image
-                    src="/arrow.svg"
-                    width="6"
-                    height="9"
-                    fill={hovered ? "#fff" : "#07c"}
-                  />
+                  <Image src="/arrow.svg" width="6" height="9" />
                 </div>
               </div>
             </div>

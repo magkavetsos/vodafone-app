@@ -2,22 +2,33 @@ import styles from "./Home.module.css";
 import React, { useEffect, useState } from "react";
 import ImagesSection from "./components/ImagesSection/index.js";
 import OurServices from "./components/OurServices/index.js";
+import { getHomeData } from "../../backend/homeData";
+import { useQuery } from "react-query";
 
-export default function Home() {
+export async function getStaticProps() {
+  const homeData = await getHomeData();
+  return { props: { homeData } };
+}
+
+export default function Home(props) {
+  const { homeData } = props;
   const [currentSectionId, setCurrentSectionId] = useState("");
-
+  const { data, isLoading } = useQuery("home", getHomeData, {initialData: homeData});
   useEffect(() => {
-    if (mockData) {
-      setCurrentSectionId(mockData[0]?.sections[0]?.id);
+    if (data) {
+      setCurrentSectionId(data[0]?.sections[0]?.id);
     }
-  }, []);
+  }, [data]);
+  if (isLoading) {
+    return "loading";
+  }
 
   const handleCurrentSectionId = (id) => {
     setCurrentSectionId(id);
   };
 
   const renderSectionContent = () => {
-    const caseData = mockData[0].sections.find(
+    const caseData = data[0].sections.find(
       (section) => section.id === currentSectionId
     );
     if (caseData) {
@@ -33,62 +44,11 @@ export default function Home() {
     return null;
   };
 
-  const mockData = [
-    {
-      id: "home",
-      name: "Home",
-      description: "Our Sections",
-      sections: [
-        {
-          id: "01",
-          title: null,
-          images: [
-            {
-              img: "https://images.pexels.com/photos/3046638/pexels-photo-3046638.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260",
-              title: "Image title 1",
-            },
-            {
-              img: "https://images.pexels.com/photos/2125083/pexels-photo-2125083.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
-              title: "Image title 2",
-            },
-            {
-              img: "https://images.pexels.com/photos/1294230/pexels-photo-1294230.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
-              title: "Image title 3",
-            },
-            {
-              img: "https://images.pexels.com/photos/1341322/pexels-photo-1341322.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
-              title: "Image title 4",
-            },
-            {
-              img: "https://images.pexels.com/photos/2127969/pexels-photo-2127969.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
-              title: "Image title 5",
-            },
-          ],
-        },
-        {
-          id: "02",
-          title: "Our Services",
-          graphText:
-            "We create websites and campaigns that expose new opportunities",
-          stats: [
-            { title: "Percentage 1", amount: 600 },
-            { title: "Percentage 2", amount: 300 },
-            { title: "Percentage 3", amount: 300 },
-            { title: "Percentage 4", amount: 800 },
-          ],
-          formText: "Validate your info",
-          formLabels: ["Your phone", "Your Email", "Your password"],
-          buttonText: "Submit",
-        },
-      ],
-    },
-  ];
-
   return (
     <div className={styles.sectionGrid}>
-      <div className={styles.sectionTitle}>{mockData[0]?.description}</div>
+      <div className={styles.sectionTitle}>{data[0]?.description}</div>
       <div className={styles.tabMenu}>
-        {mockData[0]?.sections?.map((section, i) => {
+        {data[0]?.sections?.map((section, i) => {
           return (
             <div
               key={section.id}
