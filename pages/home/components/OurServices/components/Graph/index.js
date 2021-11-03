@@ -38,7 +38,7 @@ export default function Graph(props) {
       <div className={styles.graphContent}>
         {data?.stats?.map((stat, i) => {
           return (
-            <div>
+            <div key={`${i}`}>
               <div className={styles.barHeader}>
                 <div className={styles.barTitle}>
                   {stat?.title.toUpperCase()}
