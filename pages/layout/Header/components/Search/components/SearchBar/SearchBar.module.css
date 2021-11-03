@@ -1,0 +1,40 @@
+.searchContent input {
+  border: none;
+  outline: none;
+  background: transparent;
+  border-bottom: 1px solid #00000075;
+  color: black;
+  padding: 0px 10px 10px 10px;
+}
+.searchContent {
+  display: flex;
+}
+.searchIcon {
+  cursor: pointer;
+}
+.menuStyles {
+  background: #212424;
+  padding: 16px 0px;
+  margin: 0;
+  list-style-type: none;
+  margin-top: 4px;
+  border-radius: 4px;
+}
+.InsideMenuStyles {
+    list-style-type: none;
+    margin: 0;
+    border-radius: 4px;
+    padding-left: 10px;
+}
+.menuItem {
+    color: #FCFCFC;
+    padding: 6px 8px;
+    font-size: 15px;
+    text-align: left;
+    opacity: .5;
+    cursor: pointer;
+}
+.menuItem:hover {
+    background: #FCFCFC;
+    color: #212424;
+}

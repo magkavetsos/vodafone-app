@@ -6,7 +6,7 @@ export default function ImagesSection(props) {
   const { imagesArray } = props;
   return (
     <div className={styles.imagesSectionContainer}>
-      <div>
+      <div className={styles.oneImageColumn}>
         <Image
           src={imagesArray[0].img}
           width="370"

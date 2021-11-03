@@ -12,7 +12,7 @@ export default function Carousel(props) {
         showThumbs={false}
         swipeable={false}
         useKeyboardArrows={true}
-        autoPlay
+        // autoPlay
         infiniteLoop
         showStatus={false}
         renderIndicator={(onClickHandler, isSelected, index, label) => {

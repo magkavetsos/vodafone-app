@@ -5,6 +5,11 @@
   /* padding-top: 85px; */
   padding: 85px 19vw 20px 19vw;
 }
+@media (max-width: 1300px) {
+  .sectionGrid {
+    padding: 85px 5vw 20px 5vw;
+  }
+}
 .sectionTitle {
   color: #071e57;
   font-size: 32px;

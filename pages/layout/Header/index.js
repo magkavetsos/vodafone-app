@@ -32,8 +32,8 @@ export default function Header() {
       title: "home",
       href: "home",
       subContent: [
-        { title: "section1", href: "section1" },
-        { title: "section2", href: "section2" },
+        { title: "section1", href: "home#section1" },
+        { title: "section2", href: "home#section2" },
       ],
     },
     { title: "Page 2", href: "page2", subContent: [] },
